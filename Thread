@@ -1,0 +1,32 @@
+public class EjemploMultithreading {
+    public static void main(String[] args) {
+        // Crear e iniciar dos hilos
+        HiloEjemplo hilo1 = new HiloEjemplo("Hilo 1");
+        HiloEjemplo hilo2 = new HiloEjemplo("Hilo 2");
+        hilo1.start();
+        hilo2.start();
+
+        // El programa principal tambien esta ejecutando en su propio hilo
+        System.out.println("Hilo principal: Hola desde el hilo principal.");
+    }
+}
+
+class HiloEjemplo extends Thread {
+    private String nombreHilo;
+
+    public HiloEjemplo(String nombreHilo) {
+        this.nombreHilo = nombreHilo;
+    }
+
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(nombreHilo + ": Contador " + i);
+        }
+    }
+}
+
+
+/*
+En este ejemplo, se crean dos hilos (hilo1 y hilo2) extendiendo la clase Thread y se inician con el método start(). 
+Los hilos ejecutarán el método run() concurrentemente. Además, el programa principal (hilo principal) también está ejecutando y muestra mensajes en la consola.
+*/
