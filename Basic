@@ -1,0 +1,113 @@
+public class Basic {
+    public static void main(String args[]) {
+     
+     //      System.out.println("My first program in JDoodle, I'm: "+ args[0]);
+     
+     // Inmutabilidad del objeto String
+     String str1 = "Mi cadena";
+     System.out.println("primera asignacion a str1: "+str1);
+     System.out.println("Referencia str1: " + System.identityHashCode(str1));
+     str1 = "Otra cadena"; // Se puede cambiar el valor
+     System.out.println("Re asignacion de valor a str1: "+str1);
+     System.out.println("Referencia str1: " + System.identityHashCode(str1));
+     String str2 = str1;
+     System.out.println("Asignacion de str1 a str2: "+ str2);
+     System.out.println("Referencia str2: " + System.identityHashCode(str1));
+     str2 = "Tercera cadena"; //hasta aqui todo bien, funciona como se espera
+     System.out.println("Re asignacion de valor a str2: "+str2);
+     System.out.println("Nueva referencia str2: " + System.identityHashCode(str2));
+     System.out.println("str1 conserva su referencia aunque str2 cambio de referencia: " + System.identityHashCode(str1));
+     str1 += " anexo a cadena";
+     System.out.println("Concatenacion de valor a str1: "+ str1);
+     System.out.println("Referencia str1 concatenada: " + System.identityHashCode(str1));
+     
+     System.out.println("la variable str1 fue cambiando de referencia a cada momento, en la parte de la reasignacion se esperaba esto, pero al concatenar tambien pierde la referencia al valor anterior generando una nueva referencia");
+     System.out.println("cuando se asigna str1 astr2 comparten referencia, pero al reasigna valor a str2 cambia la referencia de str2 y str1 la conserva");
+    
+     
+        System.out.println("\n");
+        System.out.println("Comparaciones de string o cadenas");
+ 
+     /*Otros ejemplos con cadenas*/
+     
+        String texto1 = "Hola";
+        String texto2 = "Hola"; // texto1 y texto2 apuntaran al mismo objeto
+        String texto3 = new String("Hola");
+        System.out.println("\n");
+        
+        System.out.println("Validando referencias: \n");
+        System.out.println("Referencia texto1: (Hola)" + System.identityHashCode(texto1));
+        System.out.println("Referencia texto2: (Hola): " + System.identityHashCode(texto2));
+        System.out.println("Referencia texto3: (new String(Hola)): " + System.identityHashCode(texto3));
+        System.out.println("\n");
+
+        System.out.println("Comparacion con ==: (por referencia no por valor) \n");
+        System.out.println("texto1 == texto2: "+texto1 == texto2); // true, porque ambos apuntan al mismo objeto en el pool de cadenas
+        System.out.println("texto1 == texto3: "+texto1 == texto3); // false, porque texto3 es un nuevo objeto creado con "new"
+        System.out.println("\n");
+
+        System.out.println("Comparacion con equals: (por valor no por referencia) \n");
+        System.out.println("texto1.equals(texto2): "+ texto1.equals(texto2)); // true, porque equals compara el contenido de las cadenas
+        System.out.println("texto1.equals(texto3): "+ texto1.equals(texto3)); // true, porque el contenido es el mismo ("Hola")
+        System.out.println("\n");
+        
+        System.out.println("Cambiamos el valor de texto2 a Nuevo Valor y comparamos referencias...");
+        texto2 = "Nuevo valor";
+        System.out.println("Referencia texto1: " + System.identityHashCode(texto1));
+        System.out.println("Referencia texto2: " + System.identityHashCode(texto2));
+        
+        System.out.println(texto1);
+        System.out.println(texto2);
+        
+        System.out.println("\n");
+        
+        System.out.println("trabajando con StringBuilder");
+        System.out.println("\n");
+        
+        StringBuilder sbStr1 = new StringBuilder("Nueva cadena sbStr1");
+        
+        System.out.println("variable sbStr1 creada: " + sbStr1);
+        System.out.println("Esta es su referencia inicial: "+ System.identityHashCode(sbStr1));
+        System.out.println("Se agrega o concatena nuevo valor a sbStr1... ");
+        sbStr1.append(" desde aqui se concatena al valor inicial de sbStr1");
+        System.out.println("variable sbStr1 modificada: " + sbStr1);
+        System.out.println("Esta es su referencia ahora con la concatenacion: "+ System.identityHashCode(sbStr1));
+        System.out.println("\n");
+        System.out.println("Creando nueva variable sbStr2 apuntando a sbStr1...");
+        StringBuilder sbStr2 = sbStr1;
+        System.out.println("esta es sbStr2: "+ sbStr2);
+        System.out.println("esta es la referencia de sbStr2: " + System.identityHashCode(sbStr2));
+        System.out.println("\n");
+        
+        System.out.println("Modificando sbStr2...");
+        sbStr2.append(" Tercera concatenada");
+        System.out.println("\n");
+        
+        System.out.println("mostrando contenido de sbStr1 y sbStr2");
+        System.out.println("Este es sbStr1: "+ sbStr1);
+        System.out.println("Este es sbStr2: "+ sbStr2);
+        System.out.println("\n");
+        
+        System.out.println("referencias de sbStr1 y sbStr2");
+        System.out.println("esta es la referencia de sbStr1: " + System.identityHashCode(sbStr1));
+        System.out.println("esta es la referencia de sbStr2: " + System.identityHashCode(sbStr2));
+        
+        System.out.println("Cuando un StringBuilder es creado a partir de otro, este conserva la referencia y afectan las modificaciones de cualquiera al otro de ellos");
+        System.out.println("\n");
+        
+        System.out.println("Mezclando objetos tipo String y StrinBuilder....");
+        System.out.println("\n");
+        
+        System.out.println("Creando objeto tipo String, asignando valor y creando StringBuilder apuntando a este objeto String");
+        String strMix = "Valor inicial de strMix";
+        StringBuilder sbMix = new StringBuilder(strMix); //Debo convertirlo por que son tipos incompatibles
+        
+        System.out.println("Valor de strMix: "+strMix);
+        System.out.println("Valor de sbMix: "+sbMix);
+        System.out.println("esta es la referencia de strMix: " + System.identityHashCode(strMix));
+        System.out.println("esta es la referencia de sbMix: " + System.identityHashCode(sbMix));
+        System.out.println("al crear referencias distintas no se afectan entre si");
+        
+
+    }
+}
