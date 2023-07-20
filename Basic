@@ -111,3 +111,21 @@ public class Basic {
 
     }
 }
+
+/*
+Método	                        Descripción
+StringBuilder()	            Constructor que crea un objeto StringBuilder vacío.
+StringBuilder(int capacity)	Constructor que crea un objeto StringBuilder con capacidad inicial especificada.
+append(data)	            Agrega el valor del parámetro al final del StringBuilder.
+insert(index, data)        	Inserta el valor del parámetro en la posición especificada.
+delete(start, end)	        Elimina los caracteres desde la posición start hasta end.
+replace(start, end, data)	Reemplaza los caracteres desde start hasta end por el valor del parámetro.
+reverse()	                Invierte el contenido del StringBuilder.
+length()	                Devuelve la longitud del StringBuilder (número de caracteres).
+capacity()	                Devuelve la capacidad actual del StringBuilder.
+charAt(index)	            Devuelve el carácter en la posición especificada.
+substring(start)	        Devuelve una nueva cadena desde la posición start hasta el final.
+substring(start, end)	    Devuelve una nueva cadena desde start hasta end.
+toString()	                Convierte el StringBuilder en un objeto String.
+
+*/
