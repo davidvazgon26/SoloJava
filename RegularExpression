@@ -1,0 +1,38 @@
+import java.util.regex.*;
+
+public class RegularExpression {
+    public static void main(String[] args) {
+        String texto = "La temperatura es 25°C y la humedad es 80%.";
+
+        // Definir una expresión regular para encontrar números
+        String patron = "\\d+";
+
+        // Compilar la expresión regular
+        Pattern pattern = Pattern.compile(patron);
+
+        // Crear el objeto Matcher y aplicar la expresión al texto
+        Matcher matcher = pattern.matcher(texto);
+
+        // Encontrar y mostrar todas las coincidencias
+        while (matcher.find()) {
+            System.out.println("Coincidencia: " + matcher.group());
+        }
+    }
+}
+
+
+/*
+
+Java Regular Expression (Expresión Regular en Java) es una secuencia de caracteres que define un patrón de búsqueda para encontrar o manipular cadenas de texto. Las expresiones regulares son una poderosa herramienta utilizada en Java para realizar tareas como búsqueda, extracción y reemplazo de patrones en cadenas de texto.
+
+Características de Java Regular Expression:
+
+Sintaxis: Las expresiones regulares se definen utilizando una sintaxis especial que representa patrones de caracteres y metacaracteres para describir las reglas de búsqueda.
+
+Clase Pattern: Java proporciona la clase Pattern para compilar y representar expresiones regulares. Un objeto Pattern se crea utilizando el método estático compile().
+
+Clase Matcher: Una vez que se compila una expresión regular, se puede utilizar la clase Matcher para aplicar la expresión a una cadena de texto y realizar operaciones como encontrar coincidencias o extraer información.
+
+Metacaracteres: Los metacaracteres son caracteres especiales utilizados en las expresiones regulares para representar clases de caracteres, repeticiones, posiciones y otras reglas de búsqueda.
+
+*/
