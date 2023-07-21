@@ -1,0 +1,21 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class EjemploFunctionalProgramming {
+    public static void main(String[] args) {
+        List<Integer> numeros = Arrays.asList(1, 2, 3, 4, 5);
+
+        // Uso de Stream y funciones de orden superior para filtrar y mapear los numeros
+        List<Integer> numerosParesDuplicados = numeros.stream()
+                .filter(n -> n % 2 == 0)
+                .map(n -> n * 2)
+                .collect(Collectors.toList());
+
+        System.out.println(numerosParesDuplicados); // Salida: [4, 8]
+    }
+}
+
+/*
+En este ejemplo, se utiliza la API de Stream para filtrar los números pares de una lista de números y luego duplicar cada número par utilizando funciones lambda.
+*/
