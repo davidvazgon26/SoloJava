@@ -1,0 +1,26 @@
+// Interfaz funcional con un solo método abstracto
+interface Operacion {
+    int operar(int a, int b);
+}
+
+public class EjemploLambda {
+    public static void main(String[] args) {
+        // Implementación de la interfaz funcional con una lambda
+        Operacion suma = (a, b) -> a + b;
+
+        int resultado = suma.operar(5, 3);
+        System.out.println("Resultado: " + resultado); // Salida: 8
+    }
+}
+
+
+/*
+Lambda:
+
+Las lambdas son expresiones de funciones anónimas, lo que significa que son funciones que no tienen un nombre asociado.
+Se utilizan para implementar interfaces funcionales, que son interfaces con un solo método abstracto.
+Permiten una sintaxis más concisa para definir funciones, lo que hace que el código sea más legible y expresivo.
+Ayudan a mejorar la eficiencia al evitar la necesidad de crear clases anónimas para implementar interfaces funcionales.
+Las lambdas se denotan mediante la sintaxis (parámetros) -> expresión o (parámetros) -> { bloque de código }.
+
+*/
