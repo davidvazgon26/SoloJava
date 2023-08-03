@@ -1,9 +1,12 @@
+package com.App;
+
 // Interfaz funcional con un solo método abstracto
 interface Operacion {
     int operar(int a, int b);
 }
 
 public class EjemploLambda {
+
     public static void main(String[] args) {
         // Implementación de la interfaz funcional con una lambda
         Operacion suma = (a, b) -> a + b;
